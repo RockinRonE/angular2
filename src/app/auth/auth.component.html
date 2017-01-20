@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+    <h1>{{title}}</h1>
+    <div class="col-md-8">
+      <form (ngSubmit)="onSubmit()" [formGroup]="authForm" >
+
+        <div class="form-group">
+          <label for="emailAddress" class="control-label"> Email Address</label>
+          <input type="email" class="form-control" placeholder="Email" formControlName="email">
+        </div>
+
+         <div class="form-group" *ngIf="authType == 'register'" >
+          <label for="username" class="control-label"> User Name</label>
+          <input type="text" class="form-control" placeholder="User Name" formControlName="username">
+        </div>
+
+         <div class="form-group">
+          <label for="password" class="control-label"> Password</label>
+          <input type="password" class="form-control" placeholder="Password" formControlName="password">
+        </div>
+
+        <button class="btn btn-default" type="submit" [disabled]="!authForm.valid">
+          submit
+        </button>
+
+      </form>
+    </div>
+  </div>
+</div>
